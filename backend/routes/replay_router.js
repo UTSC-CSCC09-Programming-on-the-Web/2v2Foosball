@@ -4,6 +4,7 @@ import { Game } from "../models/game.js";
 import { GameAction } from "../models/game_actions.js";
 import { Op } from "sequelize";
 import { User } from "../models/users.js";
+import { isAuth } from "../middlewares/auth.js";
 
 export const replayRouter = Router();
 
@@ -103,6 +104,3 @@ replayRouter.get("/actions/:gameId", isAuth, async (req, res) => {
     return res.status(500).json({ error: "Internal server error" });
   }
 });
-
-
-
